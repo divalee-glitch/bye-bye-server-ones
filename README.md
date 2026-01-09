@@ -1,11 +1,49 @@
-# bye-bye-server
+# Bye Bye Server
 
-Community Repository for the [Bye-Bye-Server.com](https://bye-bye-server.com/) Website
+Atlassian is retiring their Server and Data Center products. This site helps you find alternatives.
 
-## PRs welcome
+Website: https://bye-bye-server.com
 
-If you want to contribute a product - edit the products.json in the public directory
+## Contributing
 
-Make sure your product supports on premises deployments, as we want to provide alternatives for Atlassian Server customers.
+PRs welcome. To add or update a product, edit `src/lib/data/products.js`.
 
-There is a husky pre-commit hook that will automatically sort the product list in a alphabetical order. Committing with `--no-verify` and subsequently pushing will result in the github action validation failing if the products are not in alphabetical order. The pre-commit hook also runs prettier, maintaining a styling consistency.
+Requirements for listed products:
+- Must support on-premises deployment (alternatives for Atlassian Server customers)
+- Include accurate license information
+- Provide a working website URL
+
+## Development
+
+### Prerequisites
+- Node.js 22+
+- Go 1.22+
+
+### Run locally
+```
+npm install
+npm run dev
+```
+
+### Build
+```
+npm run build
+```
+
+### Format/Lint
+```
+npm run format
+npm run lint
+```
+
+## Deployment
+
+Uses Docker for deployment:
+
+```
+docker compose up -d
+```
+
+## Tech Stack
+- Frontend: Svelte 5, Vite, Tailwind CSS
+- Backend: Go (static file server)
